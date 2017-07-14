@@ -6,7 +6,7 @@ import GradeCal from './GradeCal';
 class App extends Component {
   render() {
     return (
-      <Grid fluid='true'>
+      <Grid fluid>
         <Row>
           <Col md={8} mdOffset={2} xs={10} xsOffset={1} className='card'>
             <h3>Hello</h3>
