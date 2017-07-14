@@ -3,6 +3,7 @@ import {Grid, Row, Col, Button , Form, FormControl , FormGroup, ControlLabel, Ta
 import '../assets/css/GradeCal.css';
 
 class GradeCal extends Component {
+
   render() {
     return (
       <Grid>
@@ -21,13 +22,22 @@ class GradeCal extends Component {
             </Col>
         </Row>
         <hr/>
-        <SubjList/>
+        <SubjList removeSubj={this.handleRemoveSubj}/>
       </Grid>
     );
   }
 }
 
 class SubjList extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            subjdata : [
+                {"subj":"Subject Name", "credit":"1", "grade":"3"}
+            ]
+        };
+    }
   render(){
     return(
       <Grid>
@@ -43,7 +53,7 @@ class SubjList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <Subject/>
+                    {this.state.subjdata.map((item,id) => <Subject key={id} subj={item.subj} credit={item.credit} grade={item.grade} />)}
                 </tbody>
             </Table>
             </Col>
@@ -61,10 +71,11 @@ class SubjList extends Component {
 }
 
 class Subject extends Component {
+
   render(){
     return(
       <tr>
-          <td><FormControl type='text' placeholder='Subject Name'/></td>
+          <td><FormControl type='text' placeholder='Subject Name' value={this.props.subj}/></td>
           <td>
             <FormControl componentClass='select' placeholder='Credit'>
                 <option value='1'>1</option>
