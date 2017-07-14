@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Grid, Row, Col, Button , Form, FormControl} from 'react-bootstrap';
+import {Grid, Row, Col} from 'react-bootstrap';
 import '../assets/css/App.css';
 import GradeCal from './GradeCal';
 
