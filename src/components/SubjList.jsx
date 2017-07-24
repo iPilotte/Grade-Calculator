@@ -98,7 +98,7 @@ class SubjList extends Component {
           </Row>
           <hr/>
           <Row>
-            <Col xs={10} xsOffset={1}>
+            <Col md={10} mdOffset={1} xs={12}>
             <Table responsive>
                 <thead>
                     <tr>
