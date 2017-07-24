@@ -9,34 +9,33 @@ class GradeCal extends Component {
         const ca = this.inputCA;
         let new_ca = parseFloat(ca.value);
         if(isNaN(new_ca)){
+            this.setState({ca:0})
             return;
         }
         if(new_ca < 0){
             new_ca = 0;
         }
+        this.setState({ca:new_ca})
     }
 
-    handleChangeGPA(e){
-        const gpa = this.inputGPA;
-        let new_gpa = parseFloat(gpa.value);
-        if(isNaN(new_gpa)){
+    handleChangeGP(e){
+        const gp = this.inputGP;
+        let new_gp = parseFloat(gp.value);
+        if(isNaN(new_gp)){
+            this.setState({gp:0})
             return;
         }
-        if(new_gpa < 0){
-            new_gpa = 0;
+        if(new_gp < 0){
+            new_gp = 0;
         }
-        this.setState({gpa:new_gpa});
-    }
-
-    CalculateGPA(){
-
+        this.setState({gp:new_gp});
     }
 
     constructor(props){
         super(props);
         this.state ={
             ca:0,
-            gpa:0,
+            gp:0,
         };
     }
   render() {
@@ -51,13 +50,13 @@ class GradeCal extends Component {
             </Col>
             <Col md={3} xs={4}>
                 <FormGroup>
-                    <ControlLabel>GPA</ControlLabel>
-                    <FormControl type='number' placeholder='GPA' inputRef={(input) => this.inputGPA = input} defaultValue={this.state.gpa} onChange={this.handleChangeGPA.bind(this)}/>
+                    <ControlLabel>GP</ControlLabel>
+                    <FormControl type='number' placeholder='GP' inputRef={(input) => this.inputGP = input} defaultValue={this.state.gp} onChange={this.handleChangeGP.bind(this)}/>
                 </FormGroup>
             </Col>
         </Row>
         <hr/>
-        <SubjList/>
+        <SubjList caValue={this.state.ca} gpValue={this.state.gp}/>
       </Grid>
     );
   }

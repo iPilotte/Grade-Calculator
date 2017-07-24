@@ -9,6 +9,7 @@ class SubjectItem extends Component {
           <td><FormControl type='text' placeholder='Subject Name' id={this.props.index.toString()} onKeyUp={this.props.changeSubjectName}/></td>
           <td>
             <FormControl componentClass='select' placeholder='Credit' id={this.props.index.toString()} defaultValue={this.props.credit} onChange={this.props.changeCredit}>
+                <option value='0'>-</option>
                 <option value='1'>1</option>
                 <option value='2'>2</option>
                 <option value='3'>3</option>
@@ -26,6 +27,7 @@ class SubjectItem extends Component {
                 <option value='2'>C</option>
                 <option value='1.5'>C+</option>
                 <option value='1'>D</option>
+                <option value='0'>-</option>
             </FormControl>
           </td>
           <td>
